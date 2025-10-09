@@ -6,10 +6,20 @@ body {
     display:  flex ;
     justify-content:  space-around ;
     align-items: center;
-
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: #2d3748;
+    background-image: url(./image/background.jpg);
+    font-family: "delius";
 }
 
-
+@font-face {
+    font-family: "delius";
+    src: url(./fonts/Delius-Regular.woff) format('woff') , 
+    url('./fonts/Delius-Regular.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
 
 form  {
     width:  max(100px , 20vw);
@@ -38,9 +48,9 @@ form > div {
 
 }
 .container {
-    width: max(300px , 40vw);
+    width: max(30rem , 40vw );
     aspect-ratio: 1/1;
-    border: 2px solid black;
+    border: 2px solid #bcaaa4;
     border-radius: 20px;
     display: grid ;
     grid-template-columns: repeat(3 ,1fr);
@@ -48,8 +58,57 @@ form > div {
 }
 
 .container > div { 
-    border: 2px solid blue;
+    background-color: #bcaaa4;
     border-radius: 10px;
-    margin: 10px;
+    margin: 0.5rem;
+    display: flex ;
+    flex-direction: column;
+    justify-content: space-around;
+    text-wrap: nowrap;
+    position: relative;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+    padding: 10px;
+    max-height: 220px;
 
+
+}
+.container > div:hover { 
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    transform: translateY(-2px);
+
+
+}
+label  { 
+    color : #4a5568
+}
+input { 
+    border: 2px solid #cbd5e0;
+    background-color: #ffffff;
+    border-radius: 10px;
+}
+input:focus { 
+    border-color: #667eea;
+}
+
+.read { 
+    background-color: #a7f3d0;
+    color : #065f46 
+}
+.notread { 
+    background-color: #fecaca;
+    color: #7f1d1d;
+}
+.removeBtn { 
+    background-color: #f3f4f6;
+    color: #374151;
+}
+.submitbtn { 
+    background-color: #dbeafe;
+    color: #1e40af;
+}
+
+button { 
+    border-radius: 10px;
+    font-family: "delius";
 }
