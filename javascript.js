@@ -21,6 +21,10 @@ document.querySelector(".submit").addEventListener("click" , ()=>{
     let title = document.getElementById("title").value
     let author = document.getElementById("author").value
     let pages = document.getElementById("pages").value
+    if (!title || !author || !pages) { 
+        alert("please fill the required fields")
+        return
+    }
     let newBook = new book(title , author , pages)
     addToLib(newBook)
     displayBooks()
@@ -40,13 +44,19 @@ function CreateCard(book){
     let pages = document.createElement("p")
     pages.textContent = `pages: ${book.pages}`
     let status = document.createElement("button")
+    status.classList.add("notread")
     status.textContent = "not read"
     status.addEventListener("click" , ()=> {
     if(status.textContent == "not read") {
         status.textContent = "read"
+        status.classList.remove("notread")
+        status.classList.add("read")
     }
     else if (status.textContent == "read"){ 
         status.textContent = "not read"
+        status.classList.remove("read")
+        status.classList.add("notread")
+
     }})
     card.append(title)
     card.append(author)
@@ -54,6 +64,7 @@ function CreateCard(book){
     card.append(status)
     removebutton = document.createElement("button")
     removebutton.textContent = "remove"
+    removebutton.classList.add("removeBtn")
     card.append(removebutton)
     removeBook(book)
 
