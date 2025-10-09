@@ -4,8 +4,9 @@ body {
     width: 100vw ;
     height:  100vh ;
     display:  flex ;
-    justify-content:  center ;
+    justify-content:  space-around ;
     align-items: center;
+
 }
 
 
@@ -36,4 +37,19 @@ form > div {
     flex-direction: column;
 
 }
+.container {
+    width: max(300px , 40vw);
+    aspect-ratio: 1/1;
+    border: 2px solid black;
+    border-radius: 20px;
+    display: grid ;
+    grid-template-columns: repeat(3 ,1fr);
 
+}
+
+.container > div { 
+    border: 2px solid blue;
+    border-radius: 10px;
+    margin: 10px;
+
+}
