@@ -1,0 +1,39 @@
+* { box-sizing:  border-box ;}
+
+body { 
+    width: 100vw ;
+    height:  100vh ;
+    display:  flex ;
+    justify-content:  center ;
+    align-items: center;
+}
+
+
+
+form  {
+    width:  max(100px , 20vw);
+    aspect-ratio: 1/1.2 ;
+    display: grid;
+    grid-template-rows: repeat(4, 1fr);
+    gap: 5px;
+
+
+}
+.title { 
+    grid-row: 1/2;
+}
+.author { 
+    grid-row: 2/3;
+}
+.pages { 
+    grid-row: 3/4;
+}
+.submit { 
+    grid-row: 4/5;
+}
+form > div { 
+    display: flex ;
+    flex-direction: column;
+
+}
+
