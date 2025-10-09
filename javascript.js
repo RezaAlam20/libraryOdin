@@ -22,11 +22,12 @@ document.querySelector(".submit").addEventListener("click" , ()=>{
     let author = document.getElementById("author").value
     let pages = document.getElementById("pages").value
     let newBook = new book(title , author , pages)
-    CreateCard(newBook)
     addToLib(newBook)
+    displayBooks()
     document.getElementById("title").value = "";
     document.getElementById("author").value = ""; 
     document.getElementById("pages").value = "";
+    console.log(mybooks)
 })
 
 
@@ -39,11 +40,32 @@ function CreateCard(book){
     author.textContent = `author: ${book.author}`
     let pages = document.createElement("p")
     pages.textContent = `pages: ${book.pages}`
+    let status = document.createElement("button")
+    status.textContent = "not read"
+    status.addEventListener("click" , ()=> {
+    if(status.textContent == "not read") {
+        status.textContent = "read"
+    }
+    else if (status.textContent == "read"){ 
+        status.textContent = "not read"
+    }})
     card.append(title)
     card.append(author)
     card.append(pages)
+    card.append(status)
     document.querySelector(".container").append(card)
 
 }
 
+
+function displayBooks(){ 
+    let container = document.querySelector(".container")
+    while (container.firstChild) { 
+        container.removeChild(container.firstChild)
+    }
+    
+    mybooks.forEach(book =>{ 
+        CreateCard(book)
+    })
+}
 
