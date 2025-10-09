@@ -27,7 +27,6 @@ document.querySelector(".submit").addEventListener("click" , ()=>{
     document.getElementById("title").value = "";
     document.getElementById("author").value = ""; 
     document.getElementById("pages").value = "";
-    console.log(mybooks)
 })
 
 
@@ -53,6 +52,11 @@ function CreateCard(book){
     card.append(author)
     card.append(pages)
     card.append(status)
+    removebutton = document.createElement("button")
+    removebutton.textContent = "remove"
+    card.append(removebutton)
+    removeBook(book)
+
     document.querySelector(".container").append(card)
 
 }
@@ -68,4 +72,18 @@ function displayBooks(){
         CreateCard(book)
     })
 }
+
+function removeBook(book){ 
+    removebutton.addEventListener("click" , () => { 
+        for( let i = 0 ; i < mybooks.length ; i++) { 
+            if (mybooks[i].id == book.id){ 
+                mybooks.splice([i] , 1 )
+                displayBooks()
+            }
+
+        }
+    })
+    
+}
+
 
