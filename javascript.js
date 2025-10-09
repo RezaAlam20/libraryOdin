@@ -7,13 +7,24 @@ function book(title ,author , pages ) {
 }
 
 
-let newBook = new book(title , author , pages)
+
+
 
 
 function addToLib(book){
     mybooks.push(book)
 
 }
-addToLib(newBook)
+
+
+document.querySelector(".submit").addEventListener("click" , ()=>{
+    let title = document.getElementById("title").value
+    let author = document.getElementById("author").value
+    let pages = document.getElementById("pages").value
+    let newBook = new book(title , author , pages)
+    addToLib(newBook)
+    console.log(mybooks)
+})
+
 
 
