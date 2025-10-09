@@ -22,9 +22,28 @@ document.querySelector(".submit").addEventListener("click" , ()=>{
     let author = document.getElementById("author").value
     let pages = document.getElementById("pages").value
     let newBook = new book(title , author , pages)
+    CreateCard(newBook)
     addToLib(newBook)
-    console.log(mybooks)
+    document.getElementById("title").value = "";
+    document.getElementById("author").value = ""; 
+    document.getElementById("pages").value = "";
 })
 
+
+
+function CreateCard(book){ 
+    let card = document.createElement("div")
+    let title = document.createElement("p")
+    title.textContent = `title: ${book.title}`
+    let author = document.createElement("p")
+    author.textContent = `author: ${book.author}`
+    let pages = document.createElement("p")
+    pages.textContent = `pages: ${book.pages}`
+    card.append(title)
+    card.append(author)
+    card.append(pages)
+    document.querySelector(".container").append(card)
+
+}
 
 
