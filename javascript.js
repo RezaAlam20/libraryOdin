@@ -1,12 +1,19 @@
 let mybooks = []
-function book(title ,author , pages ) { 
-    this.title = title 
-    this.author = author 
-    this.pages = pages
-    this.id = crypto.randomUUID()
+
+
+class book {  
+    constructor(title , author , pages , id ) { 
+        this.title = title 
+        this.author = author 
+        this.pages = pages
+        this.id = crypto.randomUUID()
+            
+
+
+    }
+
+
 }
-
-
 
 
 
